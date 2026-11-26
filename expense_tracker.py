@@ -19,6 +19,14 @@ def show_expenses():
 def show_total():
    total = sum(item["amount"] for item in expenses)
    print(f"Total : {total:.2f}")
+   
+def show_average():
+   if not expenses:
+      print("No expenses recorded.")
+   return
+total = sum(item["amount"] for item in expenses)
+average = total / len(expenses)
+print(f"Average expense: {average:.2f}")
 
 def main():
    while True:
@@ -46,10 +54,3 @@ def main():
 if __name__ == "__main__":
  main()
 
-def show_average():
-   if not expenses:
-      print("No expenses recorded.")
-   return
-total = sum(item["amount"] for item in expenses)
-average = total / len(expenses)
-print(f"Average expense: {average:.2f}")
